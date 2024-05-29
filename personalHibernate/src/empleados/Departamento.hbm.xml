@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 may 2024 12:03:54 by Hibernate Tools 5.6.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="personal" name="empleados.Departamento" optimistic-lock="none" table="departamento">
+        <id name="idDep" type="java.lang.Integer">
+            <column name="id_dep"/>
+            <generator class="identity"/>
+        </id>
+        <property name="nombre" type="string">
+            <column length="15" name="nombre"/>
+        </property>
+        <property name="localidad" type="string">
+            <column length="15" name="localidad"/>
+        </property>
+    </class>
+</hibernate-mapping>

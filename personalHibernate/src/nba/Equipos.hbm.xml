@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 may 2024 12:03:55 by Hibernate Tools 5.6.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="nbaacceso" name="nba.Equipos" optimistic-lock="none" table="equipos">
+        <id name="nombre" type="string">
+            <column length="20" name="Nombre"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="ciudad" type="string">
+            <column length="20" name="Ciudad"/>
+        </property>
+        <property name="conferencia" type="string">
+            <column length="4" name="Conferencia"/>
+        </property>
+        <property name="division" type="string">
+            <column length="9" name="Division"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="jugadoreses" table="jugadores">
+            <key>
+                <column length="20" name="Nombre_equipo"/>
+            </key>
+            <one-to-many class="nba.Jugadores"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="partidosesForEquipoVisitante" table="partidos">
+            <key>
+                <column length="20" name="equipo_visitante"/>
+            </key>
+            <one-to-many class="nba.Partidos"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="partidosesForEquipoLocal" table="partidos">
+            <key>
+                <column length="20" name="equipo_local"/>
+            </key>
+            <one-to-many class="nba.Partidos"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 may 2024 12:03:55 by Hibernate Tools 5.6.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="nbaacceso" name="nba.Jugadores" optimistic-lock="none" table="jugadores">
+        <id name="codigo" type="int">
+            <column name="codigo"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="nba.Equipos" fetch="select" name="equipos">
+            <column length="20" name="Nombre_equipo"/>
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column length="30" name="Nombre"/>
+        </property>
+        <property name="procedencia" type="string">
+            <column length="20" name="Procedencia"/>
+        </property>
+        <property name="altura" type="string">
+            <column length="4" name="Altura"/>
+        </property>
+        <property name="peso" type="java.lang.Integer">
+            <column name="Peso"/>
+        </property>
+        <property name="posicion" type="string">
+            <column length="5" name="Posicion"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="estadisticases" table="estadisticas">
+            <key>
+                <column name="jugador" not-null="true"/>
+            </key>
+            <one-to-many class="nba.Estadisticas"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 may 2024 12:03:54 by Hibernate Tools 5.6.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="personal" name="empleados.Empleado" optimistic-lock="none" table="empleado">
+        <id name="idEmp" type="java.lang.Integer">
+            <column name="id_emp"/>
+            <generator class="identity"/>
+        </id>
+        <property name="apellido" type="string">
+            <column length="10" name="apellido"/>
+        </property>
+        <property name="oficio" type="string">
+            <column length="10" name="oficio"/>
+        </property>
+        <property name="fechaAlta" type="date">
+            <column length="10" name="fecha_alta"/>
+        </property>
+        <property name="salario" type="java.lang.Long">
+            <column name="salario" precision="10" scale="0"/>
+        </property>
+        <property name="comision" type="java.lang.Long">
+            <column name="comision" precision="10" scale="0"/>
+        </property>
+        <property name="idDep" type="java.lang.Integer">
+            <column name="id_dep"/>
+        </property>
+    </class>
+</hibernate-mapping>
